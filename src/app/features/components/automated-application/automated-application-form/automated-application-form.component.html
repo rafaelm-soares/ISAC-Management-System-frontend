@@ -1,0 +1,33 @@
+<div class="form-container">
+  <h1>{{ isEditMode ? 'Edit Automated Application' : 'Create New Automated Application' }}</h1>
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Application Name</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Application Type</mat-label>
+      <mat-select formControlName="applicationType" required>
+        <mat-option *ngFor="let type of applicationTypes" [value]="type">
+          {{ applicationTypeDescriptions[type] }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Automation Type</mat-label>
+      <mat-select formControlName="automationType" required>
+        <mat-option *ngFor="let type of automationTypes" [value]="type">
+          {{ automationTypeDescriptions[type] }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit" class="custom-button">{{ isEditMode ? 'Save Changes' :
+        'Create' }}</button>
+      <button mat-stroked-button color="warn" type="button" (click)="cancel()" class="custom-button">Cancel</button>
+    </div>
+  </form>
+</div>

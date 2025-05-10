@@ -1,0 +1,71 @@
+<!-------------------------- Banner ---------------------------------->
+<app-banner [subtitle]="'Automated Projects'"></app-banner>
+
+<mat-accordion [multi]="true">
+
+    <!-- Project Information Panel -->
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>info</mat-icon> Project Information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><strong>Name:</strong> {{ project?.name }}</p>
+      <p><strong>IUA Code:</strong> {{ project?.iuaCode?.fullName }}</p>
+      <p><strong>Impact:</strong> {{ project?.impact }}</p>
+    </mat-expansion-panel>
+  
+    <!-- Version Information Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>update</mat-icon> Version Information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><strong>Version:</strong> {{ project?.projectVersions?.[0]?.version?.major }}.
+        {{ project?.projectVersions?.[0]?.version?.minor }}.
+        {{ project?.projectVersions?.[0]?.version?.patch }}
+      </p>
+      <p><strong>Created Date:</strong> {{ project?.projectVersions?.[0]?.createdDate | date: 'dd/MM/yyyy HH:mm' }}</p>
+      <p><strong>Deploy Date Prod:</strong> {{ project?.projectVersions?.[0]?.deployDateProd | date: 'dd/MM/yyyy HH:mm' }}</p>
+    </mat-expansion-panel>
+  
+    <!-- Business Line Information Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>business</mat-icon> Business Line Information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><strong>Company:</strong> {{ project?.department?.businessLine?.company?.fullName }}</p>
+      <p><strong>Business Line:</strong> {{ project?.department?.businessLine?.fullName }}</p>
+    </mat-expansion-panel>
+  
+    <!-- Documentation Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>description</mat-icon> Documentation
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let document of project?.projectVersions?.[0]?.documents">
+        <p><strong>{{ document.documentType }}:</strong>
+          <a [href]="document.url" target="_blank">{{ document.name }}</a>
+        </p>
+      </div>
+    </mat-expansion-panel>
+  
+    <!-- Employees Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>people</mat-icon> Employees
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let employee of project?.projectVersions?.[0]?.employees">
+        <p><strong>{{ employee.name }}:</strong> {{ employee.email }}</p>
+      </div>
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+  

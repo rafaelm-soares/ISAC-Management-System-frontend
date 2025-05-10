@@ -1,0 +1,37 @@
+<div class="search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div formArrayName="filters" class="filters">
+      <div *ngFor="let filter of filters.controls; let i = index" [formGroupName]="i" class="filter-group">
+        <!-- Operator selection for logical conditions -->
+        <select formControlName="operator">
+          <option *ngFor="let op of ['(', '( NOT', 'AND', 'OR', 'AND NOT', 'OR NOT', ') AND (', ') OR (', ') AND NOT (', ') OR NOT (']" [value]="op">{{ op }}</option>
+        </select>
+
+        <!-- Field selection for filtering projects -->
+        <select formControlName="field">
+          <option *ngFor="let field of ['projectCode', 'alias', 'businessLine', 'status', 'lifecycle', 'teamMembers']" [value]="field">{{ field | titlecase }}</option>
+        </select>
+
+        <!-- Condition selection for the filter -->
+        <select formControlName="condition">
+          <option *ngFor="let condition of ['contains', 'matches', 'startsWith', 'endsWith', 'isEmpty']" [value]="condition">{{ condition | titlecase }}</option>
+        </select>
+
+        <!-- Input for the value to filter by -->
+        <input type="text" formControlName="value" placeholder="Enter value">
+
+        <!-- Button to remove the current filter -->
+        <button type="button" class="remove-filter" (click)="removeFilter(i)">✖</button>
+      </div>
+    </div>
+
+    <!-- Button to add a new filter -->
+    <button type="button" class="add-filter" (click)="addFilter()">+</button>
+
+    <!-- Action buttons: Search and Clear -->
+    <div class="actions">
+      <button class="search" type="submit">Search</button>
+      <button type="button" class="clear" (click)="onClear()">Clear</button>
+    </div>
+  </form>
+</div>

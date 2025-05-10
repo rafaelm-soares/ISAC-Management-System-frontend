@@ -1,0 +1,85 @@
+:root {
+    --primary-color: #444444;
+    --secondary-color: #f1f1f1;
+    --background-color: #f7f7f7;
+    --text-color: var(--primary-color);
+    --highlight-color: #ffffff;
+    --border-radius: 10px;
+    --tooltip-bg: rgba(0, 0, 0, 0.75);
+    --transition-duration: 0.3s;
+}
+
+/* ---------------------- General Styles -----------------------------*/
+
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+button {
+    cursor: pointer;
+}
+
+mat-accordion {
+    margin: 1.5rem 0;
+}
+
+mat-expansion-panel {
+    background-color: var(--background-color);
+    border-radius: var(--panel-border-radius);
+    box-shadow: var(--panel-shadow);
+    margin-bottom: 1rem;
+    transition: box-shadow var(--transition-duration);
+}
+
+mat-expansion-panel:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+mat-expansion-panel-header {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: var(--panel-border-radius) var(--panel-border-radius) 0 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    transition: background-color var(--transition-duration);
+}
+
+mat-expansion-panel-header:hover {
+    background-color: #e8f0fe;
+}
+
+mat-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+mat-panel-title mat-icon {
+    font-size: 1.5rem;
+    color: var(--icon-color);
+}
+
+mat-expansion-panel-body {
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}

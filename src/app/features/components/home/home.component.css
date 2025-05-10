@@ -1,0 +1,132 @@
+/* ----------------------BANNER-------------------------------------*/
+
+.home-banner {   
+    margin: 0;
+    padding: 150px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 70vh;
+    flex-direction: column;
+}
+
+#video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.2; 
+}
+
+.home-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1); 
+    z-index: -1;
+}
+
+.home-banner h2 {
+    margin: 0;
+    position: relative;
+    font-size: 3em;
+    color: #52537e;
+    -webkit-text-stroke: 0.1vw #252839;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.home-banner h2::before {
+    content: attr(banner-title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    -webkit-text-stroke: 0vw #1c3494;
+    border-right: 1px solid #01fe87;
+    overflow: hidden;
+    animation: animate-h2 4s forwards ;   
+}
+
+@keyframes animate-h2 {
+
+    0% {
+        width: 0%;
+        border-right: 1px solid whitesmoke;
+    }
+    80% {
+        width: 100%; 
+        border-right: 1px solid whitesmoke;
+        opacity: 1;
+    }
+    90% {
+        width: 100%;
+        border-right: 1px solid whitesmoke;
+        opacity: 1;
+    }
+    100% {
+        width: 100%; 
+        color: whitesmoke; 
+        border-right: 1px solid rgba(1, 254, 135, 0);
+    } 
+}
+
+.home-banner .subtitle {
+    margin-top: 20px;
+    text-align: center; 
+    opacity: 0; 
+    animation: show-subtitle 0.5s 2.5s forwards;
+}
+
+@keyframes show-subtitle {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.home-banner .subtitle h3 {
+    padding: 10px 20px;
+    border: 1px solid #ffffff42;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 1em;
+    color: #cacfea;
+    z-index: 1;
+}
+
+/* ----------------------BACKGROUND VIDEO---------------------------*/
+
+.videoContainer {
+    position:fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    overflow: hidden; 
+    z-index:-2;
+    opacity: .05;
+    object-fit:cover;
+
+}
+
+.video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transform: translate(-50%, -50%); 
+}

@@ -1,0 +1,91 @@
+<!-------------------------- Banner ---------------------------------->
+<app-banner [subtitle]="'Automated Projects'"></app-banner>
+
+<!-------------------------- Actions Bar------------------------------>
+<app-actions-bar [addRoute]="'/automated-applications'" (viewModeChange)="setViewMode($event)"
+  (toggleSearch)="toggleSearch()">
+</app-actions-bar>
+
+<!-------------------------- Search Bar ------------------------------>
+<app-search *ngIf="showSearch"></app-search>
+
+<!-------------------------- Data ------------------------------------>
+<div [ngClass]="{'card-view': viewMode === 'card', 'table-view': viewMode === 'table'}">
+  <!-------------------------- Card View ---------------------------------->
+  <ul *ngIf="viewMode === 'card'" class="project-list">
+    <li *ngFor="let project of paginatedProjects" class="project-item">
+      <a routerLink="/projects/{{project.id}}" class="project-link">
+        <!-- Status Label -->
+        <div class="project-status-container">
+          <div class="project-status-label" [ngClass]="{
+              'project-status-backlog': project.status === eStatus.BACKLOG,
+              'project-status-planned': project.status === eStatus.PLANNED,
+              'project-status-inprogress': project.status === eStatus.IN_PROGRESS,
+              'project-status-cancelled': project.status === eStatus.CANCELLED,
+              'project-status-ended': project.status === eStatus.ENDED}">
+            {{ project.status | uppercase }}
+          </div>
+        </div>
+        <!-- Project code -->
+        <div class="project-code-container">
+          <div class="project-code">
+            {{ project.iuaCode.abbreviation }}
+          </div>
+        </div>
+        <!-- Project alias -->
+        <div class="project-alias-container">
+          <div class="project-alias">
+            {{ project.name }}
+          </div>
+        </div>
+        <!-- Project Business line -->
+        <div class="project-businessline-container">
+          <span class="label-project-businessline">BUSINESS LINE</span>
+          <div class="project-businessline">
+            {{ project.department.businessLine.abbreviation }}
+          </div>
+        </div>
+        <!-- Project application -->
+        <div class="project-asset-container">
+          <div class="project-asset">
+            <span *ngFor="let asset of project.assets" class="project-assets">{{ asset }}</span>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+  <!-------------------------- Table View ---------------------------------->
+  <table *ngIf="viewMode === 'table'" class="project-table">
+    <thead>
+      <tr>
+        <th class="column-status">Status</th>
+        <th class="column-code">Code</th>
+        <th class="column-alias">Alias</th>
+        <th class="column-businessline">Business Line</th>
+        <th class="column-assets">Assets</th>
+        <th class="column-actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects" class="table-row">
+        <td>{{ project.status }}</td>
+        <td>{{ project.iuaCode.abbreviation }}</td>
+        <td>{{ project.name }}</td>
+        <td>{{ project.department.businessLine.abbreviation }}</td>
+        <td>{{ project.assets }}</td>
+        <td>
+          <button mat-icon-button [routerLink]="['/projects/edit', project.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteProject(project.id!)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-------------------------- Paginator ---------------------------------->
+<app-paginator [items]="projects" (pageChanged)="onPageChanged($event)">
+</app-paginator>

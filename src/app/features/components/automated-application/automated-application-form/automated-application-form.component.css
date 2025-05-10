@@ -1,0 +1,49 @@
+:root {
+  --primary-color: #444444;
+  --secondary-color: #A5C9FF;
+  --background-color: #f7f7f7;
+  --text-color: var(--primary-color);
+  --highlight-color: #ffffff;
+  --border-radius: 10px;
+  --tooltip-bg: rgba(0, 0, 0, 0.75);
+  --transition-duration: 0.3s;
+}
+
+/* ---------------------- General Styles -----------------------------*/
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  section {
+    display: table;
+  }

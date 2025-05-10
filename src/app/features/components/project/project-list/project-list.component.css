@@ -1,0 +1,247 @@
+:root {
+    --primary-color: #444444;
+    --secondary-color: #A5C9FF;
+    --background-color: #f7f7f7;
+    --text-color: var(--primary-color);
+    --highlight-color: #ffffff;
+    --border-radius: 10px;
+    --tooltip-bg: rgba(0, 0, 0, 0.75);
+    --transition-duration: 0.3s;
+}
+
+/* ----------------------GENERAL STYLES-----------------------------*/
+
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ---------------------- Project List ---------------------------*/
+
+/* ----- Card View ----- */
+
+.card-view .project-list {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 2rem 0 2rem 2rem;
+}
+
+.card-view .project-item {
+    flex: 1 1 calc(20% - 20px);
+    max-width: calc(20% - 20px);
+    background-color: var(--highlight-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+    position: relative;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+    .card-view .project-item {
+        flex: 1 1 calc(20% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card-view .project-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+.card-view .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Status Label */
+.card-view .project-status-container {
+    padding: 15px 0;
+}
+
+.card-view .project-status-label {
+    padding: 4px 15px;
+    position: absolute;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+/* Status Styles */
+.card-view .project-status-backlog,
+.table-view .status-backlog {
+    background-color: rgba(177, 177, 177, 0.8);
+    color: var(--primary-color);
+}
+
+.card-view .project-status-planned,
+.table-view .status-planned {
+    background-color: rgba(243, 146, 62, 0.8);
+    color: whitesmoke;
+}
+
+.card-view .project-status-inprogress,
+.table-view .status-inprogress {
+    background-color: rgba(52, 160, 255, 0.8);
+    color: whitesmoke;
+}
+
+.card-view .project-status-cancelled,
+.table-view .status-cancelled {
+    background-color: rgba(97, 97, 97, 0.8);
+    color: whitesmoke;
+}
+
+.card-view .project-status-ended,
+.table-view .status-ended {
+    background-color: #1d9b47;
+    color: whitesmoke;
+}
+
+/* Project Code */
+.card-view .project-code-container {
+    height: 2rem;
+    margin-top: 3rem;
+}
+
+.card-view .project-code {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Project Alias */
+.card-view .project-alias-container {
+    height: 5rem;
+}
+
+.card-view .project-alias {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: lighter;
+}
+
+/* Business Line */
+.card-view .project-businessline-container {
+    height: 2rem;
+}
+
+.card-view .label-project-businessline {
+    font-size: 0.7rem;
+    color: #b4b4b4;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+}
+
+.card-view .project-businessline {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-family: Roboto, Geneva, Tahoma, sans-serif;
+}
+
+/* Assets */
+.card-view .project-asset-container {
+    height: 2rem;
+    margin-top: 2rem;
+}
+
+.card-view .project-asset {
+    display: flex;
+    gap: 5px;
+}
+
+.card-view .project-asset .project-assets {
+    background-color: #ecf5ff;
+    color: rgb(44, 152, 247);
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: solid 1px rgb(44, 152, 247);
+    font-size: 0.75rem;
+}
+
+/* ----- Table View ----- */
+
+/* General Table Styling */
+.table-view {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.table-view .project-table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.table-view .project-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    table-layout: fixed;
+    background-color: white;
+}
+
+/* Table Columns */
+.table-view .project-table th,
+.table-view .project-table td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.table-view .project-table th {
+    background-color: #e6e6e6;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Column Widths */
+.table-view .column-status { width: 10%; }
+.table-view .column-code { width: 10%; }
+.table-view .column-alias { width: 30%; box-sizing: border-box; }
+.table-view .column-businessline { width: 15%; }
+.table-view .column-assets { width: 25%; }
+.table-view .column-actions { width: 10%; text-align: center; }
+
+.table-view .project-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Assets */
+.table-view .asset-button {
+    background-color: #ecf5ff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    transition: background-color var(--transition-duration) ease;
+}
+
+/* Status Button */
+.table-view .status-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.7rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100px;
+    text-align: center;
+}

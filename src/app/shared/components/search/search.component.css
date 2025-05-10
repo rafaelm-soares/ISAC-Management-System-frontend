@@ -1,0 +1,108 @@
+/* General search container styling */
+.search-container {
+  margin: 2rem;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  font-family: Abel, sans-serif;
+}
+
+/* Filters container styling */
+.filters {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Filter group styling */
+.filter-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+/* Input and select fields inside filter group */
+.filter-group select,
+.filter-group input[type="text"] {
+  margin-right: 10px;
+  /* Space between fields */
+  border-radius: 4px;
+  /* Rounded corners */
+  padding: 8px 12px;
+  /* Inner padding */
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  /* Font size */
+  font-family: inherit;
+  /* Inherit font from container */
+  box-sizing: border-box;
+  /* Include padding and border in total width */
+  width: 400px;
+  /* Set width for input fields */
+}
+
+/* Add filter button styling */
+.add-filter {
+  font-size: 20px;
+  /* Icon size */
+  cursor: pointer;
+  color: #007bff;
+  /* Icon color */
+  background: none;
+  border: none;
+}
+
+/* Actions button container */
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  /* Increased spacing between buttons */
+}
+
+/* Search and clear buttons styling */
+.actions button {
+  border: none;
+  border-radius: 6px;
+  /* Rounded corners */
+  padding: 6px 6px;
+  /* Button padding */
+  font-size: 14px;
+  /* Font size */
+  cursor: pointer;
+  color: #fff;
+  font-family: inherit;
+  /* Inherit font from container */
+  transition: background-color 0.3s ease;
+}
+
+.search {
+  background-color: #007bff;
+}
+
+.clear {
+  background-color: #d2d2d2;
+  /* Background color for clear button */
+  color: #444444;
+}
+
+/* Hover effects for buttons */
+.search:hover {
+  background-color: #218838;
+}
+
+.clear:hover {
+  background-color: #444444;
+}
+
+/* Remove filter button styling */
+.remove-filter {
+  background: none;
+  border: none;
+  color: #dc3545;
+  /* Color of remove icon */
+  font-size: 16px;
+  /* Icon size */
+  cursor: pointer;
+}

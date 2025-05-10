@@ -1,0 +1,45 @@
+.view-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+  
+  .view-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--highlight-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color var(--transition-duration) ease;
+  }
+  
+  .view-toggle:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .tooltip {
+    position: relative;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    color: var(--highlight-color);
+    background-color: var(--tooltip-bg);
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity var(--transition-duration);
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }  

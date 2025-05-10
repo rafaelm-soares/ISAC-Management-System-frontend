@@ -1,0 +1,79 @@
+<!-------------------------- Banner ---------------------------------->
+<app-banner [subtitle]="'Automated Applications'"></app-banner>
+
+<!-------------------------- Actions Bar------------------------------>
+<app-actions-bar [addRoute]="'/automated-applications/new'" (viewModeChange)="setViewMode($event)"
+  (toggleSearch)="toggleSearch()">
+</app-actions-bar>
+
+<!--------------------------SEARCH BAR---------------------------------->
+<app-search *ngIf="showSearch"></app-search>
+
+<!-------------------------- Card View ---------------------------------->
+<div [ngClass]="{'card-view': viewMode === 'card', 'table-view': viewMode === 'table'}">
+  <!-- Card View -->
+  <ul *ngIf="viewMode === 'card'" class="app-list">
+    <li *ngFor="let application of paginatedApps" class="app-item">
+      <div class="app-link">
+        <div class="app-content">
+          <div class="app-name-container">
+            <div class="app-name">
+              {{ application.name }}
+            </div>
+          </div>
+          <div class="app-applicationtype-container">
+            <span class="label-app-applicationtype">APPLICATION TYPE</span>
+            <div class="app-applicationtype">
+              {{ getApplicationTypeDescription(application.applicationType) }}
+            </div>
+          </div>
+          <div class="app-automationtype-container">
+            <span class="label-app-automationtype">AUTOMATION TYPE</span>
+            <div class="app-automationtype">
+              {{ getAutomationTypeDescription(application.automationType) }}
+            </div>
+          </div>
+          <div class="app-actions-container">
+            <button mat-icon-button [routerLink]="['/automated-applications/edit', application.id]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteApplication(application.id!)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <!-------------------------- Table View ---------------------------------->
+  <table *ngIf="viewMode === 'table'" class="app-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Application Type</th>
+        <th>Automation Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let application of paginatedApps" class="table-row">
+        <td>{{ application.name }}</td>
+        <td>{{ getApplicationTypeDescription(application.applicationType) }}</td>
+        <td>{{ getAutomationTypeDescription(application.automationType) }}</td>
+        <td class="column-actions">
+          <button mat-icon-button [routerLink]="['/automated-applications/edit', application.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteApplication(application.id!)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-------------------------- Paginator ---------------------------------->
+<app-paginator [items]="applications" (pageChanged)="onPageChanged($event)">
+</app-paginator>

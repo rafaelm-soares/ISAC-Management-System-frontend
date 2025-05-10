@@ -1,0 +1,176 @@
+:root {
+  --primary-color: #444444;
+  --secondary-color: #A5C9FF;
+  --background-color: #f7f7f7;
+  --text-color: var(--primary-color);
+  --highlight-color: #ffffff;
+  --border-radius: 10px;
+  --tooltip-bg: rgba(0, 0, 0, 0.75);
+  --transition-duration: 0.3s;
+}
+
+/* ---------------------- General Styles -----------------------------*/
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------------------- CSS for Card View ---------------------------*/
+
+/* ----- Card View ----- */
+
+.card-view .app-list {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 2rem;
+}
+
+.card-view .app-item {
+  flex: 1 1 calc(20% - 20px);
+  max-width: calc(20% - 20px);
+  background-color: var(--highlight-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .card-view .app-item {
+    flex: 1 1 calc(20% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-view .app-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.card-view .app-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Automation & Application Type Label */
+.card-view .app-automation-type-container {
+  height: 2rem;
+}
+
+.card-view .label-app-automation-type {
+  font-size: 0.7rem;
+  color: #b4b4b4;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+.card-view .app-automation-type {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-family: Roboto, Geneva, Tahoma, sans-serif;
+}
+
+/* App Name */
+.card-view .app-name-container {
+  height: 2rem;
+  margin-top: 3rem;
+}
+
+.card-view .app-name {
+  color: #576478;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Application & Automation Type */
+.card-view .app-automationtype-container,
+.card-view .app-applicationtype-container {
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+.card-view .label-app-automationtype,
+.card-view .label-app-applicationtype {
+  font-size: 0.7rem;
+  color: #b4b4b4;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+.card-view .app-automationtype,
+.card-view .app-applicationtype {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-family: Roboto, Geneva, Tahoma, sans-serif;
+}
+
+.app-actions-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+/* ----- Table View ----- */
+
+/* General Table Styling */
+.table-view {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  cursor: pointer;
+}
+
+.table-view .app-table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table-view .app-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  table-layout: fixed;
+  background-color: white;
+}
+
+/* Table Columns */
+.table-view .app-table th,
+.table-view .app-table td {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.table-view .app-table th {
+  background-color: #e6e6e6;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Column Widths */
+.table-view .column-actions {
+  width: 10%;
+  text-align: right;
+  padding-right: 2%;
+}
+
+.table-view .app-table tr:hover {
+  background-color: #f1f1f1;
+}

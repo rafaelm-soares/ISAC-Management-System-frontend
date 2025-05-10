@@ -1,0 +1,40 @@
+<div class="option-container">
+  <div class="container-title">
+    <span class="options">OPTIONS</span>
+  </div>
+  <div class="actions">
+    <!-- Novo Ícone de "Mais" -->
+    <button mat-icon-button aria-label="Create New Project" matTooltip="Create a new project" matTooltipPosition="above"
+      (click)="navigateToAdd()">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <!-- Espaço entre os botões -->
+    <div class="spacer_newProject"></div>
+
+    <!-- Botão para mostrar/ocultar o search -->
+    <button mat-icon-button (click)="toggleSearchHandler()" aria-label="Toggle Search" matTooltip="Show/Hide Search"
+      matTooltipPosition="above">
+      <mat-icon>{{ showSearch ? 'search_off' : 'search' }}</mat-icon>
+    </button>
+
+    <!-- Botão de Exportar -->
+    <button mat-icon-button (click)="exportData()" aria-label="Export" matTooltip="Export Data"
+      matTooltipPosition="above">
+      <mat-icon>file_download</mat-icon>
+    </button>
+
+    <!-- Espaço entre os botões -->
+    <div class="spacer"></div>
+
+    <!-- Ícones de Visualização -->
+    <div class="view-icons">
+      <button mat-icon-button (click)="setViewMode('card')" aria-label="Card View" matTooltip="Card View">
+        <mat-icon>view_comfy</mat-icon>
+      </button>
+      <button mat-icon-button (click)="setViewMode('table')" aria-label="Table View" matTooltip="Table View">
+        <mat-icon>view_list</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

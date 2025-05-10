@@ -1,0 +1,138 @@
+.menu-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #444444;
+    background-color: #EDEDED;
+    padding: 0 20px;
+}
+
+.app-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    margin-right: auto;
+    display: flex;
+}
+
+.app-title .isac {
+    font-weight: bold;
+    color: #444444;
+    margin-right: 10px;
+}
+
+.app-title .application {
+    font-weight: normal;
+    color: #444444;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444444;
+    font-size: 16px;
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+
+nav ul li a:hover {
+    background-color: #A5C9FF;
+    font-weight: bold;
+
+}
+
+
+.user-container {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    color: #444444;
+    position: relative;
+}
+
+.user-container i {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.user-name-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 1px;
+}
+
+.user-name-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 1px;
+}
+
+.user-name-dropdown i.fa-chevron-down {
+    font-size: 12px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 160%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1000;
+    text-align: center;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #444444;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dropdown-content a:hover {
+    font-weight: bold;
+    color: #444444;
+}
+
+.user-name-dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
